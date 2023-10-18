@@ -7,13 +7,14 @@
  */
 void print_env(char **cmd_line, int *status)
 {
-	int j;
+	int j = 0;
 
-	for (j = 0; environ[j]; j++)
+	while (environ[j])
 	{
 		write(STDOUT_FILENO, environ[j], _strlen(environ[j]));
 		write(STDOUT_FILENO, "\n", 1);
+		j++;
 	}
 	free_array(cmd_line);
-	(*status) = 0;
+	*status = 0;
 }

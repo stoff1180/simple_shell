@@ -7,14 +7,15 @@
  */
 int is_posit_num(char *str)
 {
-	int j;
+	int j = 0;
 
 	if (!str)
 		return (0);
-	for (j = 0; str[j]; j++)
+	while (str[j])
 	{
 		if (str[j] < '0' || str[j] > '9')
 			return (0);
+		j++;
 	}
 	return (1);
 }
@@ -26,13 +27,14 @@ int is_posit_num(char *str)
  */
 int _atoi(char *str)
 {
-	int j;
+	int j = 0;
 	int number = 0;
 
-	for (j = 0; str[j]; j++)
+	while (str[j])
 	{
 		number *= 10;
 		number += (str[j] - '0');
+		j++;
 	}
 	return (number);
 }
