@@ -8,7 +8,6 @@
 void print_env(char **cmd_line, int *status)
 {
 	int j = 0;
-	(void)cmd_line;
 
 	while (environ[j])
 	{
@@ -16,5 +15,6 @@ void print_env(char **cmd_line, int *status)
 		write(STDOUT_FILENO, "\n", 1);
 		j++;
 	}
+	free_array(cmd_line);
 	*status = 0;
 }
